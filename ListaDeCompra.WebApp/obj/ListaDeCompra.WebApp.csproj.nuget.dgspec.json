@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo3\\Lista-De-Compra-Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj": {}
+    "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Lista_De_Compra_Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo3\\Lista-De-Compra-Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj": {
+    "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Lista_De_Compra_Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo3\\Lista-De-Compra-Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Lista_De_Compra_Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj",
         "projectName": "ListaDeCompra.WebApp",
-        "projectPath": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo3\\Lista-De-Compra-Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj",
+        "projectPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Lista_De_Compra_Web\\ListaDeCompra.WebApp\\ListaDeCompra.WebApp.csproj",
         "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kauan\\Documents\\CursoADP\\Modulo3\\Lista-De-Compra-Web\\ListaDeCompra.WebApp\\obj\\",
+        "outputPath": "C:\\Users\\kauan\\Documents\\Academia-Do-Programador-FullStack\\Lista_De_Compra_Web\\ListaDeCompra.WebApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
