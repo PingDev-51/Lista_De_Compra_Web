@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ListaDeCompra.WebApp.Compartilhado.Apresentacao.Views;
+namespace ListaDeCompra.WebApp.Compartilhado.Apresentacao;
 
 public class HomeController : Controller
 {

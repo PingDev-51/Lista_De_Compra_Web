@@ -1,4 +1,7 @@
-using ClubeDaLeituraWeb.WebApp.Compartilhado.Infra.Arquivos;
+
+using ListaDeCompra.WebApp.Arquivos.Infra.Arquivos;
+using ListaDeCompra.WebApp.ModuloCategorias.Dominio;
+using ListaDeCompra.WebApp.ModuloCategorias.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,6 @@ builder.Services.AddScoped<ContextoJson>(provider =>
     return contexto;
 });
 
-//injeção de dependencia -- (Colocar no lugar deste comentario)
-
 builder.Services.AddControllersWithViews().AddRazorOptions(options =>
 {
     options.ViewLocationFormats.Clear();
@@ -21,6 +22,8 @@ builder.Services.AddControllersWithViews().AddRazorOptions(options =>
 
     options.ViewLocationFormats.Add("/Compartilhado/Apresentacao/Views/{0}.cshtml");
 });
+
+builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmArquivo>();
 
 var app = builder.Build();
 

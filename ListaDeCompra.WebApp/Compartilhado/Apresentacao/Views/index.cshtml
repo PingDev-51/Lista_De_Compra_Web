@@ -1,0 +1,31 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-lg-7">
+        <h1 class="display-5 fw-semibold mb-3">Lista De Compras</h1>
+        <p class="lead text-secondary mb-4">
+            Organize sua lista de compras!
+        </p>
+
+        <a class="btn btn-primary rounded-pill px-4" asp-controller="Categoria" asp-action="Listar">Acessar Categorias</a>
+        
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card border-primary-subtle shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="h5 text-primary mb-3">Módulos disponíveis</h3>
+
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" asp-controller="Categoria" asp-action="Listar">
+                        Controle de categorias
+                        <span class="badge text-bg-primary rounded-pill">Abrir</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

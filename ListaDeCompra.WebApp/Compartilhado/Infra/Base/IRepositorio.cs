@@ -1,7 +1,6 @@
-using ClubeDaLeituraWeb.WebApp.Compartilhado.Dominio;
+using ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
 
-
-namespace ClubeDaLeituraWeb.WebApp.Compartilhado.Infra;
+namespace ListaDeCompra.WebApp.Arquivos.Infra;
 
 public interface IRepositorio<T> where T : EntidadeBase<T>
 {

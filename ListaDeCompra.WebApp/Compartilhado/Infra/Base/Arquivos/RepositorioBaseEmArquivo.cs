@@ -1,7 +1,8 @@
-using ClubeDaLeituraWeb.WebApp.Compartilhado.Dominio;
 
-namespace ClubeDaLeituraWeb.WebApp.Compartilhado.Infra.Arquivos;
 
+using ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
+
+namespace ListaDeCompra.WebApp.Arquivos.Infra.Arquivos;
 public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
 {
     protected ContextoJson contexto;

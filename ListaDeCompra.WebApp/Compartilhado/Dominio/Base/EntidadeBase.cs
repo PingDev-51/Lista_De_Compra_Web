@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace ClubeDaLeituraWeb.WebApp.Compartilhado.Dominio;
+namespace ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
 
 public abstract class EntidadeBase<T>
 {

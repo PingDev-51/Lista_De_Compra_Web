@@ -8,43 +8,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <title>@ViewBag.title - Lista De Compra</title>
+    <title>@ViewBag.Titulo - Lista De Compras</title>
 </head>
 
 <body>
-    <nav>
-        <div>
-            <a asp-controller="Home" asp-action="Index">Clube da Leitura</a>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" asp-controller="Home" asp-action="Index">Lista De Compras</a>
 
-            <button type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menuPrincipal"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div id="menuPrincipal">
-                <div>
-                    <a asp-controller="Home" asp-action="Index">Início</a>
-                    <a href="https://github.com/PingDev-51" target="_blank">PingDev-51</a>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Início</a>
+                    <a class="nav-link" asp-controller="Categoria" asp-action="Listar">Controle de Categorias</a>
+                    <a class="nav-link" href="https://github.com/PingDev-51" target="_blank">PingDev-51</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header style="padding: 10px 20px;">
-        <h2>@ViewBag.title</h2>
-    </header>
+    <main class="container py-4">
+        <h2 class="mb-4">@ViewBag.Titulo</h2>
 
-    <main>
         @RenderBody()
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
