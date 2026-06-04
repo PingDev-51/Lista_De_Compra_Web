@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloCategorias\" />
+    <Folder Include="ModuloProdutos\Infra\" />
   </ItemGroup>
 
 </Project>
