@@ -14,8 +14,18 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="Cor" class="form-label fw-semibold text-primary text-uppercase small">Cor</label>
-        <input asp-for="Cor" type="text" class="form-control">
+        <label asp-for="Cor" class="form-label fw-semibold text-primary text-uppercase small">
+        Cor
+        </label>
+
+        <select asp-for="Cor" class="form-select">
+            <option value="">Selecione uma Cor</option>
+            <option value="Preto">Preto</option>
+            <option value="Vermelho">Vermelho</option>
+            <option value="Amarelo">Amearelo</option>
+            <option value="Roxo">Roxo</option>
+        </select>
+
         <span asp-validation-for="Cor" class="text-danger small fw-semibold"></span>
     </div>
 

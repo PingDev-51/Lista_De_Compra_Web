@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ListaDeCompra.WebApp.ModuloProdutos;
+using ListaDeCompra.WebApp.ModuloProdutos.Dominio;
 using ListaDeCompras.ConsoleApp.ModuloCategoria;
 
 namespace ListaDeCompra.WebApp.Arquivos.Infra.Arquivos;

@@ -29,7 +29,7 @@
     <div class="mb-3">
         <label asp-for="CategoriaId" class="form-label fw-semibold text-primary text-uppercase small">Categoria</label>
         <select asp-for="CategoriaId" class="form-select">
-            <option value="">Selecione uma categorias</option>
+            <option value="">Selecione uma categoria</option>
             @foreach (OpcaoCategoriaViewModel categoria in Model.Categorias)
             {
                 <option value="@categoria.Id">@categoria.Nome</option>
@@ -39,10 +39,21 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="UnidadeMedida" class="form-label fw-semibold text-primary text-uppercase small">UnidadeDeMedida</label>
-        <input asp-for="UnidadeMedida" type="text" min="1" class="form-control">
+        <label asp-for="UnidadeMedida" class="form-label fw-semibold text-primary text-uppercase small">
+        Unidade De Medida
+        </label>
+
+        <select asp-for="UnidadeMedida" class="form-select">
+        <option value="">Selecione uma unidade</option>
+        <option value="kg">kg</option>
+        <option value="unidade">unidade</option>
+        <option value="litro">litro</option>
+        <option value="caixa">caixa</option>
+        </select>
+
         <span asp-validation-for="UnidadeMedida" class="text-danger small fw-semibold"></span>
     </div>
+
 
     <div class="d-flex justify-content-end gap-2 mt-4">
         <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar">Voltar</a>

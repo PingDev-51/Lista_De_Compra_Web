@@ -14,4 +14,3 @@ public class RepositorioProdutoEmArquivo : RepositorioBaseEmArquivo<Produto>, IR
         return contexto.Produtos;
     }
 }
-

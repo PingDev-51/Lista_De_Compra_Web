@@ -8,9 +8,9 @@ namespace ListaDeCompra.WebApp.ModuloProdutos;
 public class Produto : EntidadeBase<Produto>
 {
     public Categoria Categoria { get; set; }
-    public string Nome { get; private set; }
-    public decimal Preco { get; private set; }
-    public string UnidadeMedida { get; private set; }
+    public string Nome { get; set; }
+    public decimal Preco { get; set; }
+    public string UnidadeMedida { get; set; }
 
     public Produto()
     {
@@ -49,8 +49,5 @@ public class Produto : EntidadeBase<Produto>
             erros.Add("O Campo \"Unidade de Medida\" deve conter uma seleção permitida (kg, unidade, litro, caixa);");
 
         return erros;
-
     }
-
-   
 }
