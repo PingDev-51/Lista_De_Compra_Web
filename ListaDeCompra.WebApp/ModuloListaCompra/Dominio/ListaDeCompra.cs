@@ -7,20 +7,21 @@ public class ListaCompra : EntidadeBase<ListaCompra>
 {
     public string Nome { get; set; }
     public DateTime DataCriacao { get; set; }
-    public Status Status { get; set; }
+    public Status StatusDaLista { get; set; }
+
     // public List<ItemListaCompras> Itens { get; set; } = new List<ItemListaCompras>();
-    public decimal TotalGasto
-    {
-        get
-        {
-            decimal totalGasto = 0;
+    // public decimal TotalGasto
+    // {
+    //     get
+    //     {
+    //         decimal totalGasto = 0;
 
-            // foreach (ItemListaCompras item in Itens)
-            //     totalGasto += item.Preco;
+    //         foreach (ItemListaCompras item in Itens)
+    //             totalGasto += item.Preco;
 
-            return totalGasto;
-        }
-    }
+    //         return totalGasto;
+    //     }
+    // }
 
     public ListaCompra() { }
 
@@ -34,12 +35,12 @@ public class ListaCompra : EntidadeBase<ListaCompra>
 
     public void Abrir()
     {
-        Status = Status.Aberta;
+        StatusDaLista = Status.Aberta;
     }
 
     public void Concluir()
     {
-        Status = Status.Concluida;
+        StatusDaLista = Status.Concluida;
     }
 
     // public void AdicionarItem(Produto produto, int quantidade)

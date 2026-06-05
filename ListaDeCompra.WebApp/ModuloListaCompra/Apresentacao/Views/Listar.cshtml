@@ -1,0 +1,49 @@
+﻿@using ListaDeCompra.WebApp.ModuloLista.Apresentacao
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Lista de compra";
+}
+
+<a class="btn btn-outline-primary rounded-pill px-4 mb-3" asp-action="Cadastrar">Cadastrar Novo</a>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-primary border-start border-primary border-4 rounded-3" role="alert">
+        Nenhuma Lista cadastrada.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered align-middle bg-white">
+            <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data de Criação</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ListarListaDeCompraViewModel l in Model)
+                {
+                    <tr>
+                        <td>@l.Id</td>
+                        <td>@l.Nome</td>
+                        <td>@l.DataCriacao</td>
+                        <td>@l.StatusListaDeCompra</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Editar"
+                                   asp-route-id="@l.Id">Editar</a>
+                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Excluir"
+                                   asp-route-id="@l.Id">Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

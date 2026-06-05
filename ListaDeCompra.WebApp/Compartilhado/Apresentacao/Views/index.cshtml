@@ -9,32 +9,40 @@
             Organize sua lista de compras!
         </p>
 
-        <a class="btn btn-primary rounded-pill px-4" asp-controller="Categoria" asp-action="Listar">Acessar Categorias</a>
-        <a class="btn btn-primary rounded-pill px-4" asp-controller="Produto" asp-action="Listar">Acessar Produtos</a>
+        <a class="btn btn-primary rounded-pill px-4" asp-controller="Categoria" asp-action="Listar">Acessar
+            Categorias</a>
+            <a class="btn btn-primary rounded-pill px-4" asp-controller="Produto" asp-action="Listar">Acessar Produtos</a>
 
         
-    </div>
+        </div>
 
-    <div class="col-lg-5">
-        <div class="card border-primary-subtle shadow-sm">
-            <div class="card-body p-4">
-                <h3 class="h5 text-primary mb-3">Módulos disponíveis</h3>
+        <div class="col-lg-5">
+            <div class="card border-primary-subtle shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="h5 text-primary mb-3">Módulos disponíveis</h3>
 
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" asp-controller="Categoria" asp-action="Listar">
-                        Controle de categorias
-                        <span class="badge text-bg-primary rounded-pill">Abrir</span>
-                    </a>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                           asp-controller="Categoria" asp-action="Listar">
+                            Controle de categorias
+                            <span class="badge text-bg-primary rounded-pill">Abrir</span>
+                        </a>
 
-                     <div class="list-group">
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" asp-controller="Produto" asp-action="Listar">
-                        Controle de Produtos
-                        <span class="badge text-bg-primary rounded-pill">Abrir</span>
-                    </a>
+                        
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                           asp-controller="Produto" asp-action="Listar">
+                            Controle de Produtos
+                            <span class="badge text-bg-primary rounded-pill">Abrir</span>
+                        </a>
 
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                           asp-controller="ListaCompra" asp-action="Listar">
+                            Controle Lista de Compra
+                            <span class="badge text-bg-primary rounded-pill">Abrir</span>
+                        </a>
 
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>

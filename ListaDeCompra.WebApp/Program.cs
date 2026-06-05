@@ -2,6 +2,8 @@
 using ListaDeCompra.WebApp.Arquivos.Infra.Arquivos;
 using ListaDeCompra.WebApp.ModuloCategorias.Dominio;
 using ListaDeCompra.WebApp.ModuloCategorias.Infra;
+using ListaDeCompra.WebApp.ModuloLista.Dominio;
+using ListaDeCompra.WebApp.ModuloLista.Infra;
 using ListaDeCompra.WebApp.ModuloProdutos.Dominio;
 using ListaDeCompra.WebApp.ModuloProdutos.Infra;
 
@@ -27,6 +29,7 @@ builder.Services.AddControllersWithViews().AddRazorOptions(options =>
 
 builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmArquivo>();
 builder.Services.AddScoped<IRepositorioProduto, RepositorioProdutoEmArquivo>();
+builder.Services.AddScoped<IRepositorioListaDeCompra, RepositorioListaDeCompraEmArquivo>();
 
 var app = builder.Build();
 
