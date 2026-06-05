@@ -12,6 +12,10 @@ public class Produto : EntidadeBase<Produto>
     public decimal Preco { get; private set; }
     public string UnidadeMedida { get; private set; }
 
+    public Produto()
+    {
+    }
+
     public Produto(string nome, decimal preco, Categoria categoria, string unidadeMedida)
     {
         Nome = nome;

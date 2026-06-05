@@ -10,6 +10,8 @@
         </p>
 
         <a class="btn btn-primary rounded-pill px-4" asp-controller="Categoria" asp-action="Listar">Acessar Categorias</a>
+        <a class="btn btn-primary rounded-pill px-4" asp-controller="Produto" asp-action="Listar">Acessar Produtos</a>
+
         
     </div>
 
@@ -23,6 +25,13 @@
                         Controle de categorias
                         <span class="badge text-bg-primary rounded-pill">Abrir</span>
                     </a>
+
+                     <div class="list-group">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" asp-controller="Produto" asp-action="Listar">
+                        Controle de Produtos
+                        <span class="badge text-bg-primary rounded-pill">Abrir</span>
+                    </a>
+
 
                 </div>
             </div>

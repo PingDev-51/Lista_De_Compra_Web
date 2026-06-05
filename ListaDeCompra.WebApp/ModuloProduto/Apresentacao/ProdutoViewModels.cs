@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using ListaDeCompras.ConsoleApp.ModuloCategoria;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ListaDeCompra.WebApp.ModuloProdutos.Apresentacao;
 
@@ -16,24 +17,22 @@ public record ListarProdutoViewModel(
     string UnidadeMedida
 );
 
-//    public Categoria Categoria { get; set; }
-//     public string Nome { get; private set; }
-//     public int Preco { get; private set; }
-//     public string UnidadeMedida { get; private set; }
-
 public record CadastrarProdutoViewModel(
     [Required(ErrorMessage = "O campo \"Nome\" deve ser preenchido.")]
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome\" deve conter entre 3 e 100 caracteres.")] //faltando as validações (irei fazer apos o feriadão)
     string Nome,
 
     [Required(ErrorMessage = "O campo \"Categoria\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string Categoria,
+    string CategoriaId,
 
     [Required(ErrorMessage = "O campo \"Preco\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string Preco,
+    decimal Preco,
 
     [Required(ErrorMessage = "O campo \"Unidade Medida\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string UnidadeMedida
+    string UnidadeMedida,
+
+    [ValidateNever]
+    List<OpcaoCategoriaViewModel> Categorias
 
 );
 
@@ -45,19 +44,22 @@ public record EditarProdutoViewModel(
     string Nome,
 
     [Required(ErrorMessage = "O campo \"Categoria\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string Categoria,
+    string CategoriaId,
 
     [Required(ErrorMessage = "O campo \"Preco\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string Preco,
+    decimal Preco,
 
     [Required(ErrorMessage = "O campo \"Unidade Medida\" deve ser preenchido.")] //faltando as validações (irei fazer apos o feriadão)
-    string UnidadeMedida
+    string UnidadeMedida,
+
+    [ValidateNever]
+    List<OpcaoCategoriaViewModel> Categorias
 
 );
 
 public record ExcluirProdutoViewModel(
     string Id,
-   string Categoria,
+    string Categoria,
     string Nome,
     decimal Preco,
     string UnidadeMedida
