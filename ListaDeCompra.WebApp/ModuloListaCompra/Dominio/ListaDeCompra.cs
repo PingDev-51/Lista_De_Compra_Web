@@ -1,5 +1,6 @@
 using System;
 using ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
+using ListaDeCompra.WebApp.ModuloItens.Dominio;
 
 namespace ListaDeCompra.WebApp.ModuloLista.Dominio;
 
@@ -9,19 +10,19 @@ public class ListaCompra : EntidadeBase<ListaCompra>
     public DateTime DataCriacao { get; set; }
     public Status StatusDaLista { get; set; }
 
-    // public List<ItemListaCompras> Itens { get; set; } = new List<ItemListaCompras>();
-    // public decimal TotalGasto
-    // {
-    //     get
-    //     {
-    //         decimal totalGasto = 0;
+    public List<Itens> Itens { get; set; } = new List<Itens>();
+    public decimal TotalGasto
+    {
+        get
+        {
+            decimal totalGasto = 0;
 
-    //         foreach (ItemListaCompras item in Itens)
-    //             totalGasto += item.Preco;
+            foreach (Itens item in Itens)
+                totalGasto += item.PrecoTotal;
 
-    //         return totalGasto;
-    //     }
-    // }
+            return totalGasto;
+        }
+    }
 
     public ListaCompra() { }
 
@@ -50,19 +51,19 @@ public class ListaCompra : EntidadeBase<ListaCompra>
     //     Itens.Add(item);
     // }
 
-    public bool RemoverItem(string idItem)
-    {
-        // foreach (ItemListaCompras item in Itens)
-        // {
-        //     if (item.Id == idItem)
-        //     {
-        //         Itens.Remove(item);
-        //         return true;
-        //     }
-        // }
+    // public bool RemoverItem(string idItem)
+    // {
+    //     foreach (ItemListaCompras item in Itens)
+    //     {
+    //         if (item.Id == idItem)
+    //         {
+    //             Itens.Remove(item);
+    //             return true;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     public override List<string> Validar()
     {

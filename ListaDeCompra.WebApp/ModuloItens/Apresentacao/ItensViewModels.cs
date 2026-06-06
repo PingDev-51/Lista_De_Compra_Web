@@ -1,0 +1,41 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
+namespace ListaDeCompra.WebApp.ModuloItens.Apresentacao;
+
+
+public record OpcaoProdutoViewModel(
+    string Id,
+    string Nome
+);
+
+// public Produto Produto { get; set; } = null;
+// public int Quantidade { get; set; }
+// public decimal PrecoTotal
+
+public record CadastrarItensViewModel(
+
+    [Required(ErrorMessage = "O campo \"Produto\" deve ser preenchido.")]
+    string ProdutoId,
+
+    [Range(1, int.MaxValue, ErrorMessage = "O valor deve ser positivo.")]
+    int Quantidade,
+
+    [ValidateNever]
+    List<OpcaoProdutoViewModel> Produto
+);
+
+
+public record ExcluirProdutoViewModel(
+    string Id,
+    string Produto,
+    string Quantidade,
+    decimal PrecoTotal
+);
+
+
+public record OpcaoProduto(
+    string Id,
+    string Nome
+);
