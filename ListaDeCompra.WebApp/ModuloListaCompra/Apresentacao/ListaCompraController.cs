@@ -45,6 +45,73 @@ public class ListaCompraController : Controller
         return RedirectToAction(nameof(Listar));
     }
 
+    [HttpGet]
+    public ActionResult Editar(string id)
+    {
+        ListaCompra? lista = repositorioListaDeCompra.SelecionarPorId(id);
+
+        if (lista == null)
+            return RedirectToAction(nameof(Listar));
+
+        EditarListaDeCompraViewModel editarListaVm = new EditarListaDeCompraViewModel(
+            id,
+            lista.Nome,
+            lista.DataCriacao
+        );
+
+        return View(editarListaVm);
+    }
+
+    [HttpPost]
+    public ActionResult Editar(EditarListaDeCompraViewModel editarVm)
+    {
+        if (!ModelState.IsValid)
+            return View(editarVm);
+
+        ListaCompra listaAtualizada = new ListaCompra(
+            editarVm.Nome
+        );
+
+        repositorioListaDeCompra.Editar(editarVm.Id, listaAtualizada);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+    [HttpGet]
+    public ActionResult Concluir(string id)
+    {
+        ListaCompra? lista = repositorioListaDeCompra.SelecionarPorId(id);
+
+        if (lista == null)
+            return RedirectToAction(nameof(Listar));
+
+        EditarListaDeCompraViewModel editarListaVm = new EditarListaDeCompraViewModel(
+            id,
+            lista.Nome,
+            lista.DataCriacao
+        );
+
+        return View(editarListaVm);
+    }
+
+    [HttpPost]
+    public ActionResult Concluir(ConcluirListaViewModel concluirVm)
+    {
+        if (!ModelState.IsValid)
+            return View(concluirVm);
+
+        ListaCompra listaAtualizada = new ListaCompra(
+            concluirVm.Nome
+        );
+
+        repositorioListaDeCompra.Editar(concluirVm.Id, listaAtualizada);
+
+        listaAtualizada.Concluir();
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+
     private List<ListarListaDeCompraViewModel> MapearListas(List<ListaCompra> listaDeCompras)
     {
         List<ListarListaDeCompraViewModel> listarVms = listaDeCompras.Select(l => new ListarListaDeCompraViewModel(

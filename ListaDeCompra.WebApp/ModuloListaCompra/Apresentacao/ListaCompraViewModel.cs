@@ -18,6 +18,11 @@ public record CadastrarListaDeCompraViewModel(
 public record EditarListaDeCompraViewModel(
     string Id,
     string Nome,
-    DateTime DataCriacao,
-    string StatusListaDeCompra
+    DateTime DataCriacao
+);
+
+public record ConcluirListaViewModel(
+    string Id,
+    string Nome,
+    DateTime DataCriacao
 );
