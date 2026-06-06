@@ -1,4 +1,5 @@
 using System;
+using ListaDeCompra.WebApp.ModuloCategorias.Apresentacao;
 using ListaDeCompra.WebApp.ModuloLista.Dominio;
 using Microsoft.AspNetCore.Mvc;
 
@@ -78,6 +79,34 @@ public class ListaCompraController : Controller
     }
 
     [HttpGet]
+    public ActionResult Excluir(string id)
+    {
+        ListaCompra? lista = repositorioListaDeCompra.SelecionarPorId(id);
+
+        if (lista == null)
+            return RedirectToAction(nameof(Listar));
+
+        ExcluirListaViewModel excluirVm = new ExcluirListaViewModel(
+            lista.Id,
+            lista.Nome,
+            lista.DataCriacao
+        );
+
+        return View(excluirVm);
+    }
+
+    [HttpPost]
+    public ActionResult Excluir(ExcluirListaViewModel excluirVm)
+    {
+        ListaCompra? lista = repositorioListaDeCompra.SelecionarPorId(excluirVm.Id);
+
+        if (lista != null)
+            repositorioListaDeCompra.Excluir(lista);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+    [HttpGet]
     public ActionResult Concluir(string id)
     {
         ListaCompra? lista = repositorioListaDeCompra.SelecionarPorId(id);
@@ -85,7 +114,7 @@ public class ListaCompraController : Controller
         if (lista == null)
             return RedirectToAction(nameof(Listar));
 
-        EditarListaDeCompraViewModel editarListaVm = new EditarListaDeCompraViewModel(
+        ConcluirListaViewModel editarListaVm = new ConcluirListaViewModel(
             id,
             lista.Nome,
             lista.DataCriacao
@@ -104,9 +133,9 @@ public class ListaCompraController : Controller
             concluirVm.Nome
         );
 
+        listaAtualizada.Concluir();
         repositorioListaDeCompra.Editar(concluirVm.Id, listaAtualizada);
 
-        listaAtualizada.Concluir();
 
         return RedirectToAction(nameof(Listar));
     }

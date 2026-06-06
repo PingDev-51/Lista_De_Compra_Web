@@ -5,13 +5,13 @@
     ViewBag.Titulo = "Cadastrar Lista";
 }
 
-@model CadastrarListaDeCompraViewModel;
+@model ExcluirListaViewModel;
 
-<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;" asp-action="Cadastrar"
+<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;" asp-action="Excluir"
       method="post">
     <div class="mb-3">
         <label asp-for="Nome" class="form-label fw-semibold text-primary text-uppercase small">Nome</label>
-        <input asp-for="Nome" type="text" class="form-control">
+        <input asp-for="Nome" type="text" class="form-control" readonly>
         <span asp-validation-for="Nome" class="text-danger small fw-semibold"></span>
     </div>
 

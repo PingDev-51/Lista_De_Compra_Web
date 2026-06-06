@@ -79,5 +79,6 @@ public class ListaCompra : EntidadeBase<ListaCompra>
         ListaCompra listaAtualizada = (ListaCompra)entidadeAtualizada;
 
         Nome = listaAtualizada.Nome;
+        StatusDaLista = listaAtualizada.StatusDaLista;
     }
 }

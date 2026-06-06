@@ -26,3 +26,9 @@ public record ConcluirListaViewModel(
     string Nome,
     DateTime DataCriacao
 );
+
+public record ExcluirListaViewModel(
+    string Id,
+    string Nome,
+    DateTime DataCriacao
+);

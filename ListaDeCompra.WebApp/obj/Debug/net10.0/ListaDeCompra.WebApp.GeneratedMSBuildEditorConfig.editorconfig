@@ -58,8 +58,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TW9kdWxvTGlzdGFDb21wcmFcQXByZXNlbnRhY2FvXFZpZXdzXENhZGFzdHJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kauan/Documents/CursoADP/Modulo3/Lista-De-Compra-Web/ListaDeCompra.WebApp/ModuloListaCompra/Apresentacao/Views/Concluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvTGlzdGFDb21wcmFcQXByZXNlbnRhY2FvXFZpZXdzXENvbmNsdWlyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kauan/Documents/CursoADP/Modulo3/Lista-De-Compra-Web/ListaDeCompra.WebApp/ModuloListaCompra/Apresentacao/Views/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = TW9kdWxvTGlzdGFDb21wcmFcQXByZXNlbnRhY2FvXFZpZXdzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kauan/Documents/CursoADP/Modulo3/Lista-De-Compra-Web/ListaDeCompra.WebApp/ModuloListaCompra/Apresentacao/Views/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvTGlzdGFDb21wcmFcQXByZXNlbnRhY2FvXFZpZXdzXEV4Y2x1aXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kauan/Documents/CursoADP/Modulo3/Lista-De-Compra-Web/ListaDeCompra.WebApp/ModuloListaCompra/Apresentacao/Views/Listar.cshtml]
