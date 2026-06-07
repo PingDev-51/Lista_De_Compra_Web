@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using ListaDeCompra.WebApp.ModuloItens.Dominio;
 using ListaDeCompra.WebApp.ModuloLista.Dominio;
 using ListaDeCompra.WebApp.ModuloProdutos;
 using ListaDeCompra.WebApp.ModuloProdutos.Dominio;
@@ -12,7 +13,7 @@ public sealed class ContextoJson
     public List<Categoria> Categorias { get; set; } = new List<Categoria>();
     public List<Produto> Produtos { get; set; } = new List<Produto>();
     public List<ListaCompra> ListaDeCompras { get; set; } = new List<ListaCompra>();
-
+    public List<Itens> Itens { get; set; } = new List<Itens>();
     private readonly string caminhoArquivo;
 
     public ContextoJson()
@@ -59,5 +60,6 @@ public sealed class ContextoJson
         Categorias = contextoSalvo.Categorias;
         Produtos = contextoSalvo.Produtos;
         ListaDeCompras = contextoSalvo.ListaDeCompras;
+        Itens = contextoSalvo.Itens;
     }
 }

@@ -4,6 +4,12 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ListaDeCompra.WebApp.ModuloItens.Apresentacao;
 
+public record ListarItensViewModel(
+    string Id,
+    string Produto,
+    int Quantidade,
+    decimal PrecoTotal
+);
 
 public record OpcaoProdutoViewModel(
     string Id,
@@ -25,7 +31,6 @@ public record CadastrarItensViewModel(
     [ValidateNever]
     List<OpcaoProdutoViewModel> Produto
 );
-
 
 public record ExcluirProdutoViewModel(
     string Id,

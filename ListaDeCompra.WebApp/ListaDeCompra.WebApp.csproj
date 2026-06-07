@@ -7,9 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloItens\" />
-    <Folder Include="ModuloItens\Apresentacao\" />
-    <Folder Include="ModuloItens\Apresentacao\Views\" />
     <Folder Include="ModuloItens\Dominio\" />
     <Folder Include="ModuloItens\Infra\" />
     <Folder Include="ModuloProdutos\Infra\" />

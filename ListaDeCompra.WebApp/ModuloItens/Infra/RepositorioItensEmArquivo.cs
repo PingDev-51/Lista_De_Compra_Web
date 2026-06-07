@@ -12,6 +12,6 @@ public class RepositorioItensEmArquivo : RepositorioBaseEmArquivo<Itens>, IRepos
 
     protected override List<Itens> CarregarRegistros()
     {
-        throw new NotImplementedException();
+        return contexto.Itens;
     }
 }

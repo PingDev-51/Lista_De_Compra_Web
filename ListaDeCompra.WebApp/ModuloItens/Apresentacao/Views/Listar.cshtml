@@ -1,8 +1,9 @@
-﻿@using ListaDeCompra.WebApp.ModuloItens.Dominio
+﻿@using ListaDeCompra.WebApp.ModuloItens.Apresentacao
+@using ListaDeCompra.WebApp.ModuloItens.Dominio
 @using ListaDeCompra.WebApp.ModuloLista.Apresentacao
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Lista de compra";
+    ViewBag.Titulo = "Itens da Lista";
 }
 
 <a class="btn btn-outline-primary rounded-pill px-4 mb-3" asp-action="Cadastrar">Cadastrar Novo</a>
@@ -10,7 +11,7 @@
 @if (Model.Count == 0)
 {
     <div class="alert alert-primary border-start border-primary border-4 rounded-3" role="alert">
-        Nenhuma Lista cadastrada.
+        Nenhum item cadastrada.
     </div>
 }
 else
@@ -20,35 +21,31 @@ else
             <thead class="table-primary">
                 <tr>
                     <th>ID</th>
-                    <th>Nome</th>
-                    <th>Data de Criação</th>
-                    <th>Status</th>
-                    <th>Itens da Lista</th>
+                    <th>Produto</th>
+                    <th>Preço Total</th>
+                    <th>Quantidade</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (ListarListaDeCompraViewModel l in Model)
+                @foreach (ListarItensViewModel i in Model)
                 {
                     <tr>
-                        <td>@l.Id</td>
-                        <td>@l.Nome</td>
-                        <td>@l.DataCriacao.ToShortDateString()</td>
-                        <td>@l.StatusListaDeCompra</td>
+                        <td>@i.Id</td>
+                        <td>@i.Produto</td>
+                        <td>@i.PrecoTotal.ToString(format: "C2")</td>
+                        <td>@i.Quantidade</td>
                         <td>
                             <div>
-                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-controller="Itens"
-                                   asp-action="Listar">Ver Itens</a>
+                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="Itens/Listar">Ver Itens</a>
                             </div>
                         </td>
                         <td>
                             <div class="d-flex gap-2">
-                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Editar"
-                                   asp-route-id="@l.Id">Editar</a>
                                 <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Excluir"
-                                   asp-route-id="@l.Id">Excluir</a>
+                                   asp-route-id="@i.Id">Excluir</a>
                                 <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Concluir"
-                                   asp-route-id="@l.Id">Concluir</a>
+                                   asp-route-id="@i.Id">Concluir</a>
                             </div>
                         </td>
                     </tr>
