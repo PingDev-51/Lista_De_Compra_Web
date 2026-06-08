@@ -11,14 +11,6 @@ public record ListarItensViewModel(
     decimal PrecoTotal
 );
 
-public record OpcaoProdutoViewModel(
-    string Id,
-    string Nome
-);
-
-// public Produto Produto { get; set; } = null;
-// public int Quantidade { get; set; }
-// public decimal PrecoTotal
 
 public record CadastrarItensViewModel(
 
@@ -32,15 +24,26 @@ public record CadastrarItensViewModel(
     List<OpcaoProdutoViewModel> Produto
 );
 
-public record ExcluirProdutoViewModel(
+public record ExcluirItensViewModel(
     string Id,
-    string Produto,
-    string Quantidade,
+    List<OpcaoProdutoViewModel> Produto,
+    int Quantidade,
     decimal PrecoTotal
 );
 
+public record AdiocionarAListaViewModel(
+    //validar
+    string ListaId,
 
-public record OpcaoProduto(
+    List<OpcaoListaViewModel> Lista
+);
+
+public record OpcaoListaViewModel(
+    string Id,
+    string Nome
+);
+
+public record OpcaoProdutoViewModel(
     string Id,
     string Nome
 );

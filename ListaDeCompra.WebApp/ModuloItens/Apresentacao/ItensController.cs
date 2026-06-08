@@ -11,13 +11,17 @@ public class ItensController : Controller
 {
     IRepositorioItens repositorioItens;
     IRepositorioProduto repositorioProduto;
+    IRepositorioListaDeCompra repositorioListaDeCompra;
 
 
-    public ItensController(IRepositorioItens repositorioItens, IRepositorioProduto repositorioProduto)
+    public ItensController(
+        IRepositorioItens repositorioItens,
+        IRepositorioProduto repositorioProduto,
+        IRepositorioListaDeCompra repositorioListaDeCompra)
     {
         this.repositorioItens = repositorioItens;
         this.repositorioProduto = repositorioProduto;
-
+        this.repositorioListaDeCompra = repositorioListaDeCompra;
     }
 
     [HttpGet]
@@ -64,12 +68,6 @@ public class ItensController : Controller
         return RedirectToAction(nameof(Listar)); //analizar Consertar erro de cadastro
     }
 
-
-    public List<OpcaoProdutoViewModel> SelecionarProduto()
-    {
-        return repositorioProduto.SelecionarTodos().Select(a => new OpcaoProdutoViewModel(a.Id, a.Nome)).ToList();
-    }
-
     [HttpGet]
     public ActionResult Excluir(string id)
     {
@@ -78,6 +76,53 @@ public class ItensController : Controller
         if (item == null)
             return RedirectToAction(nameof(Listar));
 
+        ExcluirItensViewModel excluirVm = new ExcluirItensViewModel(
+            item.Id,
+            SelecionarProduto(),
+            item.Quantidade,
+            item.PrecoTotal
+        );
+
+        return View(excluirVm);
+    }
+
+    [HttpPost]
+    public ActionResult Excluir(ExcluirItensViewModel excluirVm)
+    {
+        Itens? item = repositorioItens.SelecionarPorId(excluirVm.Id);
+
+        if (item != null)
+            repositorioItens.Excluir(item);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+
+    [HttpGet]
+    public ActionResult AdicionarALista()
+    {
+        AdiocionarAListaViewModel adicionarVm = new AdiocionarAListaViewModel(
+            string.Empty,
+            SelecionarLista()
+        );
+
+        return View(adicionarVm);
+    }
+
+    [HttpPost]
+    public ActionResult AdicionarALista(AdiocionarAListaViewModel adicionarVm)
+    {
+
+    }
+
+    private List<OpcaoProdutoViewModel> SelecionarProduto()
+    {
+        return repositorioProduto.SelecionarTodos().Select(p => new OpcaoProdutoViewModel(p.Id, p.Nome)).ToList();
+    }
+
+    private List<OpcaoListaViewModel> SelecionarLista()
+    {
+        return repositorioListaDeCompra.SelecionarTodos().Select(l => new OpcaoListaViewModel(l.Id, l.Nome)).ToList();
     }
 
     private List<ListarItensViewModel> MapearItens(List<Itens> itens)

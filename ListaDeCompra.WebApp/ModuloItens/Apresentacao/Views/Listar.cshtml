@@ -36,16 +36,9 @@ else
                         <td>@i.PrecoTotal.ToString(format: "C2")</td>
                         <td>@i.Quantidade</td>
                         <td>
-                            <div>
-                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="Itens/Listar">Ver Itens</a>
-                            </div>
-                        </td>
-                        <td>
                             <div class="d-flex gap-2">
                                 <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Excluir"
                                    asp-route-id="@i.Id">Excluir</a>
-                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Concluir"
-                                   asp-route-id="@i.Id">Concluir</a>
                             </div>
                         </td>
                     </tr>

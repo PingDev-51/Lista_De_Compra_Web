@@ -1,0 +1,38 @@
+﻿@using ListaDeCompra.WebApp.ModuloItens.Apresentacao
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Itens";
+}
+
+@model ExcluirItensViewModel;
+
+
+
+<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;" asp-action="Excluir"
+      method="post">
+
+    <div class="mb-3">
+        <label asp-for="Produto" class="form-label fw-semibold text-primary text-uppercase small">Selecione um
+            produto</label>
+            <select asp-for="Produto" class="form-select" disabled>
+                <option value="">Selecione um Produto</option>
+                @foreach (OpcaoProdutoViewModel produto in Model.Produto)
+                {
+                    <option value="@produto.Id">@produto.Nome</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="Quantidade">Digite a Quantidade</label>
+            <input asp-for="Quantidade" type="number" class="form-control" disabled>
+        </div>
+
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar">Voltar</a>
+            <button class="btn btn-primary rounded-pill px-4" type="submit">Confirmar</button>
+
+        </div>
+    </form>
+
