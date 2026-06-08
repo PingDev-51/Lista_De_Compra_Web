@@ -112,7 +112,24 @@ public class ItensController : Controller
     [HttpPost]
     public ActionResult AdicionarALista(AdiocionarAListaViewModel adicionarVm)
     {
+        ListaCompra? listaSelecionada = repositorioListaDeCompra.SelecionarPorId(adicionarVm.ListaId);
 
+        if (listaSelecionada == null)
+            ModelState.AddModelError(nameof(adicionarVm.ListaId), "Selecione uma Lista valido");
+
+        if (!ModelState.IsValid)
+            return View(adicionarVm with
+            {
+                Lista = SelecionarLista()
+            });
+
+        Itens novoItem = new Itens(
+            listaSelecionada!
+        );
+
+        repositorioItens.Cadastrar(novoItem);
+
+        return RedirectToAction(nameof(Listar));
     }
 
     private List<OpcaoProdutoViewModel> SelecionarProduto()

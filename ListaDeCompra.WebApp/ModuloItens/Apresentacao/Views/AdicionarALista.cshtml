@@ -1,0 +1,32 @@
+﻿@using ListaDeCompra.WebApp.ModuloItens.Apresentacao
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Adicionando itens a Lista";
+}
+
+@model AdiocionarAListaViewModel;
+
+
+
+<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;" asp-action="AdicionarALista"
+      method="post">
+
+    <div class="mb-3">
+        <label asp-for="ListaId" class="form-label fw-semibold text-primary text-uppercase small">Selecione uma
+            Lista</label>
+            <select asp-for="ListaId" class="form-select">
+                <option value="">Selecione uma Lista</option>
+                @foreach (OpcaoListaViewModel lista in Model.Lista)
+                {
+                    <option value="@lista.Id">@lista.Nome</option>
+                }
+            </select>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar">Voltar</a>
+            <button class="btn btn-primary rounded-pill px-4" type="submit">Confirmar</button>
+
+        </div>
+    </form>
+

@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
+using ListaDeCompra.WebApp.ModuloLista.Dominio;
 using ListaDeCompra.WebApp.ModuloProdutos;
 
 namespace ListaDeCompra.WebApp.ModuloItens.Dominio;
@@ -8,6 +9,8 @@ namespace ListaDeCompra.WebApp.ModuloItens.Dominio;
 public class Itens : EntidadeBase<Itens>
 {
     public Produto Produto { get; set; } = null;
+
+    public ListaCompra Lista { get; set; } = null;
     public int Quantidade { get; set; }
     public decimal PrecoTotal
     {
@@ -19,6 +22,11 @@ public class Itens : EntidadeBase<Itens>
 
     public Itens()
     {
+    }
+
+    public Itens(ListaCompra lista)
+    {
+        Lista = lista;
     }
 
     public Itens(Produto produto, int quantidade)
