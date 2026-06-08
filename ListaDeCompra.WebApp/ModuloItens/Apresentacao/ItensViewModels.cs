@@ -31,18 +31,6 @@ public record ExcluirItensViewModel(
     decimal PrecoTotal
 );
 
-public record AdiocionarAListaViewModel(
-    //validar
-    string ListaId,
-
-    List<OpcaoListaViewModel> Lista
-);
-
-public record OpcaoListaViewModel(
-    string Id,
-    string Nome
-);
-
 public record OpcaoProdutoViewModel(
     string Id,
     string Nome

@@ -97,49 +97,9 @@ public class ItensController : Controller
         return RedirectToAction(nameof(Listar));
     }
 
-
-    [HttpGet]
-    public ActionResult AdicionarALista()
-    {
-        AdiocionarAListaViewModel adicionarVm = new AdiocionarAListaViewModel(
-            string.Empty,
-            SelecionarLista()
-        );
-
-        return View(adicionarVm);
-    }
-
-    [HttpPost]
-    public ActionResult AdicionarALista(AdiocionarAListaViewModel adicionarVm)
-    {
-        ListaCompra? listaSelecionada = repositorioListaDeCompra.SelecionarPorId(adicionarVm.ListaId);
-
-        if (listaSelecionada == null)
-            ModelState.AddModelError(nameof(adicionarVm.ListaId), "Selecione uma Lista valido");
-
-        if (!ModelState.IsValid)
-            return View(adicionarVm with
-            {
-                Lista = SelecionarLista()
-            });
-
-        Itens novoItem = new Itens(
-            listaSelecionada!
-        );
-
-        repositorioItens.Cadastrar(novoItem);
-
-        return RedirectToAction(nameof(Listar));
-    }
-
     private List<OpcaoProdutoViewModel> SelecionarProduto()
     {
         return repositorioProduto.SelecionarTodos().Select(p => new OpcaoProdutoViewModel(p.Id, p.Nome)).ToList();
-    }
-
-    private List<OpcaoListaViewModel> SelecionarLista()
-    {
-        return repositorioListaDeCompra.SelecionarTodos().Select(l => new OpcaoListaViewModel(l.Id, l.Nome)).ToList();
     }
 
     private List<ListarItensViewModel> MapearItens(List<Itens> itens)

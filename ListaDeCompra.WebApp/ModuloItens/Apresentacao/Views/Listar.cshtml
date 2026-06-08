@@ -24,7 +24,6 @@ else
                     <th>Produto</th>
                     <th>Preço Total</th>
                     <th>Quantidade</th>
-                    <th>Adicionar item a Lista</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -36,11 +35,6 @@ else
                         <td>@i.Produto</td>
                         <td>@i.PrecoTotal.ToString(format: "C2")</td>
                         <td>@i.Quantidade</td>
-                        <td>
-                            <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="AdicionarALista"
-                               asp-route-id="@i.Id">Adicionar</a>
-                        </td>
-
                         <td>
                             <div class="d-flex gap-2">
                                 <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Excluir"
