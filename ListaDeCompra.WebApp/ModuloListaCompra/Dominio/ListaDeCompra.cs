@@ -1,6 +1,7 @@
 using System;
 using ListaDeCompra.WebApp.Compartilhado.Dominio.Base;
 using ListaDeCompra.WebApp.ModuloItens.Dominio;
+using ListaDeCompra.WebApp.ModuloProdutos;
 
 namespace ListaDeCompra.WebApp.ModuloLista.Dominio;
 
@@ -9,15 +10,14 @@ public class ListaCompra : EntidadeBase<ListaCompra>
     public string Nome { get; set; }
     public DateTime DataCriacao { get; set; }
     public Status StatusDaLista { get; set; }
-
-    public List<Itens> Itens { get; set; } = new List<Itens>();
+    public List<Itens> Item { get; set; } = new List<Itens>();
     public decimal TotalGasto
     {
         get
         {
             decimal totalGasto = 0;
 
-            foreach (Itens item in Itens)
+            foreach (Itens item in Item)
                 totalGasto += item.PrecoTotal;
 
             return totalGasto;
@@ -34,6 +34,28 @@ public class ListaCompra : EntidadeBase<ListaCompra>
         Abrir();
     }
 
+    public void AdicionarItem(Produto produto, int quantidade)
+    {
+        Itens item = new Itens(produto, quantidade);
+
+        Item.Add(item);
+    }
+
+    public bool RemoverItem(string idItem)
+    {
+        foreach (Itens item in Item)
+        {
+            if (item.Id == idItem)
+            {
+                Item.Remove(item);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
     public void Abrir()
     {
         StatusDaLista = Status.Aberta;
@@ -43,27 +65,6 @@ public class ListaCompra : EntidadeBase<ListaCompra>
     {
         StatusDaLista = Status.Concluida;
     }
-
-    // public void AdicionarItem(Produto produto, int quantidade)
-    // {
-    //     ItemListaCompras item = new ItemListaCompras(produto, quantidade);
-
-    //     Itens.Add(item);
-    // }
-
-    // public bool RemoverItem(string idItem)
-    // {
-    //     foreach (ItemListaCompras item in Itens)
-    //     {
-    //         if (item.Id == idItem)
-    //         {
-    //             Itens.Remove(item);
-    //             return true;
-    //         }
-    //     }
-
-    //     return false;
-    // }
 
     public override List<string> Validar()
     {
