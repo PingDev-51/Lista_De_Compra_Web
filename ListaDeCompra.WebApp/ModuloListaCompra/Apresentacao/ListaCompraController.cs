@@ -147,7 +147,8 @@ public class ListaCompraController : Controller
             l.Id,
             l.Nome,
             l.DataCriacao,
-            FormatarStatus(l.StatusDaLista)
+            FormatarStatus(l.StatusDaLista),
+            string.Join(", ", l.Item.Select(i => i.Produto.Nome))
         )).ToList();
 
         return listarVms;

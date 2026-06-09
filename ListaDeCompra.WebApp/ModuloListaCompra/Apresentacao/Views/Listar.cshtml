@@ -35,11 +35,14 @@ else
                         <td>@l.Nome</td>
                         <td>@l.DataCriacao.ToShortDateString()</td>
                         <td>@l.StatusListaDeCompra</td>
+                        <td>@l.Itens</td>
                         <td>
-                            <div>
-                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-controller="Itens"
-                                   asp-action="ListarItensDaLista">Adicionar</a>
-                            </div>
+                                <a class="btn btn-outline-primary btn-sm rounded-pill px-3"
+                                    asp-controller="Itens"
+                                    asp-action="Cadastrar"
+                                    asp-route-listaId="@l.Id">
+                                    Adicionar
+                                </a>
                         </td>
                         <td>
                             <div class="d-flex gap-2">

@@ -33,11 +33,12 @@ public class ItensController : Controller
     }
 
     [HttpGet]
-    public ActionResult Cadastrar()
+    public ActionResult Cadastrar(string listaId)
     {
         CadastrarItensViewModel cadastrarVm = new CadastrarItensViewModel(
             string.Empty,
             0,
+            listaId,
             SelecionarProduto()
         );
 
@@ -47,10 +48,19 @@ public class ItensController : Controller
     [HttpPost]
     public ActionResult Cadastrar(CadastrarItensViewModel cadastrarVm)
     {
-        Produto? produtoSelecionado = repositorioProduto.SelecionarPorId(cadastrarVm.ProdutoId);
+        Produto? produtoSelecionado =
+            repositorioProduto.SelecionarPorId(cadastrarVm.ProdutoId);
 
         if (produtoSelecionado == null)
-            ModelState.AddModelError(nameof(cadastrarVm.ProdutoId), "Selecione um Produto valido");
+            ModelState.AddModelError(nameof(cadastrarVm.ProdutoId),
+                "Selecione um Produto válido");
+
+        ListaCompra? listaSelecionada =
+            repositorioListaDeCompra.SelecionarPorId(cadastrarVm.ListaId);
+
+        if (listaSelecionada == null)
+            ModelState.AddModelError(nameof(cadastrarVm.ListaId),
+                "Lista inválida");
 
         if (!ModelState.IsValid)
             return View(cadastrarVm with
@@ -58,14 +68,17 @@ public class ItensController : Controller
                 Produto = SelecionarProduto()
             });
 
-        Itens novoitem = new Itens(
+        listaSelecionada!.AdicionarItem(
             produtoSelecionado!,
             cadastrarVm.Quantidade
         );
 
-        repositorioItens.Cadastrar(novoitem);
+        repositorioListaDeCompra.Editar(
+            listaSelecionada.Id,
+            listaSelecionada
+        );
 
-        return RedirectToAction(nameof(Listar)); //analizar Consertar erro de cadastro
+        return RedirectToAction("Listar", "ListaCompra");
     }
 
     [HttpGet]

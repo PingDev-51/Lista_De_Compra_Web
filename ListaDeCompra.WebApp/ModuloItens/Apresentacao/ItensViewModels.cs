@@ -21,6 +21,9 @@ public record CadastrarItensViewModel(
     int Quantidade,
 
     [ValidateNever]
+    string ListaId,
+    
+    [ValidateNever]
     List<OpcaoProdutoViewModel> Produto
 );
 

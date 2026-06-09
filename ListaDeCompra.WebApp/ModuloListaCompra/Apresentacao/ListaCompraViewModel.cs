@@ -7,7 +7,9 @@ public record ListarListaDeCompraViewModel(
     string Id,
     string Nome,
     DateTime DataCriacao,
-    string StatusListaDeCompra
+    string StatusListaDeCompra,
+    string Itens
+
 );
 
 public record CadastrarListaDeCompraViewModel(
